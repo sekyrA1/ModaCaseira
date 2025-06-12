@@ -19,11 +19,11 @@ app.use(express.json());
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/modacaseira", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(() => {
-  console.log("✅ Banco conectado!");
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
+    console.log("✅ Banco conectado!");
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
 });
